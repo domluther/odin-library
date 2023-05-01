@@ -61,6 +61,7 @@ body {
   grid-template-rows: repeat(5, 3rem);
   justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
 #newBookForm label {
