@@ -1,6 +1,5 @@
 * {
   padding: 0px;
-  border: 0px;
   margin: 0px;
 }
 
@@ -14,6 +13,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
   font-size: 1.6rem;
@@ -22,6 +22,8 @@ body {
 .content {
   display: grid;
   grid-auto-rows: auto 1fr;
+  max-width: 80rem;
+  margin: auto;
 }
 
 .title {
@@ -35,12 +37,40 @@ body {
   background-color: var(--powder-blue);
   color: var(--davys-gray);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 2rem;
 }
 
 .card {
   background-color: var(--midnight-green);
   color: var(--periwinkle);
-  border: 0.3rem solid white;
   padding: 2rem;
+}
+
+.card p {
+  padding: 1rem 0;
+}
+
+.newBookForm {
+  /* Hidden by default */
+  display: none;
+  grid-template-columns: 6rem 30rem;
+  grid-template-rows: repeat(5, 3rem);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.newBookForm label {
+  align-self: center;
+}
+
+.submitButton {
+  grid-column-start: span 2;
+}
+
+.addBook {
+  background-color: black;
+  color: lightgreen;
+  border: 0px;
+  font-size: 10rem;
 }

@@ -1,3 +1,6 @@
+const addBookButton = document.querySelector('.addBook');
+const library = document.querySelector('.library');
+
 const myLibrary = [];
 
 function Book(title, author, pages, read = false) {
@@ -28,6 +31,31 @@ const teacherHandbook = new Book(
   true
 );
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(theLOTR);
-addBookToLibrary(teacherHandbook);
+const showForm = function () {
+  document.querySelector('.newBookForm').style.display = 'grid';
+};
+
+addBookButton.addEventListener('click', showForm);
+
+const addBookToPage = (book) => {
+  const divEle = document.createElement('div');
+  divEle.className = 'card';
+  library.prepend(divEle);
+  const titleP = document.createElement('p');
+  titleP.textContent = book.title;
+  divEle.appendChild(titleP);
+  const authorP = document.createElement('p');
+  authorP.textContent = book.author;
+  divEle.appendChild(authorP);
+  const pagesP = document.createElement('p');
+  pagesP.textContent = book.pages;
+  divEle.appendChild(pagesP);
+};
+
+const init = () => {
+  addBookToLibrary(theHobbit);
+  addBookToLibrary(theLOTR);
+  addBookToLibrary(teacherHandbook);
+  myLibrary.forEach((book) => addBookToPage(book));
+};
+init();
