@@ -31,6 +31,7 @@ body {
   text-align: center;
   background-color: var(--periwinkle);
   color: var(--midnight-green);
+  border-radius: 2rem 2rem 0 0;
 }
 
 .library {
@@ -39,19 +40,21 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   gap: 2rem;
+  border-radius: 0 0 2rem 2rem;
 }
 
 .card {
   background-color: var(--midnight-green);
   color: var(--periwinkle);
   padding: 2rem;
+  border-radius: 2rem;
 }
 
 .card p {
   padding: 1rem 0;
 }
 
-.newBookForm {
+#newBookForm {
   /* Hidden by default */
   display: none;
   grid-template-columns: 6rem 30rem;
@@ -60,12 +63,13 @@ body {
   gap: 1rem;
 }
 
-.newBookForm label {
+#newBookForm label {
   align-self: center;
 }
 
-.submitButton {
+.submitFormButton {
   grid-column-start: span 2;
+  border-radius: 2rem;
 }
 
 .addBook {
@@ -73,4 +77,23 @@ body {
   color: lightgreen;
   border: 0px;
   font-size: 10rem;
+  border-radius: 2rem;
+}
+
+input {
+  border-radius: 2rem;
+  padding: 0 1rem;
+}
+
+.card button {
+  background-color: white;
+  border: 0px;
+  border-radius: 2rem;
+  text-align: center;
+  width: 9rem;
+  height: 2.5rem;
+}
+
+.card .buttonContainer {
+  grid-template-columns: 1fr 1fr;
 }
