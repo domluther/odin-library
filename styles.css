@@ -1,0 +1,46 @@
+* {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+:root {
+  --periwinkle: #beb8ebff;
+  --celestial-blue: #5299d3ff;
+  --midnight-green: #0b5563ff;
+  --powder-blue: #a2bce0ff;
+  --davys-gray: #5e5c6cff;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+
+.content {
+  display: grid;
+  grid-auto-rows: auto 1fr;
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+  background-color: var(--periwinkle);
+  color: var(--midnight-green);
+}
+
+.library {
+  background-color: var(--powder-blue);
+  color: var(--davys-gray);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.card {
+  background-color: var(--midnight-green);
+  color: var(--periwinkle);
+  border: 0.3rem solid white;
+  padding: 2rem;
+}
