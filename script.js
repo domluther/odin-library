@@ -34,6 +34,7 @@ function removeBookFromLibrary(index) {
 
 const showForm = function () {
   newBookForm.style.display = 'grid';
+  document.querySelector('#newBookDialog').showModal();
 };
 
 const addBookToPage = (book, index) => {
@@ -71,7 +72,8 @@ const parseForm = () =>
   new Book(
     document.querySelector('#title').value,
     document.querySelector('#author').value,
-    document.querySelector('#pages').value
+    document.querySelector('#pages').value,
+    document.querySelector('#read').value
   );
 
 const clearEle = (selector) => {
@@ -108,9 +110,11 @@ submitFormButton.addEventListener('click', (e) => {
   addBookToLibrary(book);
   addBookToPage(book, myLibrary.length - 1);
   setTimeout(() => {
-    newBookForm.style.display = 'none';
+    // newBookForm.style.display = 'none';
+    document.querySelector('#newBookDialog').close();
+
     clearForm();
-  }, 2000);
+  }, 1500);
 });
 
 library.addEventListener('click', (e) => {
@@ -142,6 +146,4 @@ library.addEventListener('click', (e) => {
     readStatusEle.textContent =
       readStatusEle.textContent === 'Read?: ❌' ? 'Read?: ✅' : 'Read?: ❌';
   }
-
-  console.log(myLibrary);
 });
