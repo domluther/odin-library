@@ -1,38 +1,31 @@
-const addBookButton = document.querySelector('.addBook');
 const library = document.querySelector('.library');
 const submitFormButton = document.querySelector('.submitFormButton');
 const newBookForm = document.querySelector('#newBookForm');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
 
-Book.prototype.info = function () {
-  console.log(
-    `${this.title} by ${this.author}, ${this.pages} pages, ${
-      this.read ? 'has been read' : 'not read yet'
-    }`
-  );
-};
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
-
-function addBookToLibrary(book) {
+const addBookToLibrary = (book) => {
   myLibrary.push(book);
-}
+};
 
-function removeBookFromLibrary(index) {
+const removeBookFromLibrary = (index) => {
   myLibrary.splice(index, 1);
-}
+};
 
-const showForm = function () {
+const showForm = () => {
   newBookForm.style.display = 'grid';
   document.querySelector('#newBookDialog').showModal();
 };
@@ -97,11 +90,11 @@ const init = () => {
   );
   addBookToLibrary(theHobbit);
   addBookToLibrary(theLOTR);
-  myLibrary.forEach((book, index) => addBookToPage(book, index));
+  myLibrary.forEach((book, index) => {
+    addBookToPage(book, index);
+  });
 };
 init();
-
-// addBookButton.addEventListener('click', showForm);
 
 submitFormButton.addEventListener('click', (e) => {
   // Stop page reloading
